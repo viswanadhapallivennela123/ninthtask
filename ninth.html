@@ -1,0 +1,118 @@
+/FUNCTIONS
+function alphabet_order(str)
+  {
+return str.split('').sort().join('');
+  }
+console.log(alphabet_order("webmaster"));
+
+//JSON
+import json
+class Vehicle:
+    def _init_(self, name, engine, price):
+        self.name = name
+        self.engine = engine
+        self.price = price
+
+def vehicleDecoder(obj):
+        return Vehicle(obj['name'], obj['engine'], obj['price'])
+
+vehicleObj = json.loads('{ "name": "Toyota Rav4", "engine": "2.5L", "price": 32000 }',
+           object_hook=vehicleDecoder)
+
+print("Type of decoded object from JSON Data")
+print(type(vehicleObj))
+print("Vehicle Details")
+print(vehicleObj.name, vehicleObj.engine, vehicleObj.price)
+
+//INDEXED COLLECTION
+//pop() method
+<!DOCTYPE html>
+<html>
+<body>
+<h2>pop()</h2>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+<hr>
+<script>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = fruits;
+fruits.pop();
+document.getElementById("demo2").innerHTML = fruits;
+</script>
+
+</body>
+</html>
+
+//foreach() method
+<!DOCTYPE html>
+<html>
+<body>
+<p>Calls a function once for each array element.</p>
+
+<p id="demo"></p>
+<hr>
+<script>
+const numbers = [45, 4, 9, 16, 25];
+
+let txt = "";
+numbers.forEach(myFunction);
+document.getElementById("demo").innerHTML = txt;
+
+function myFunction(value, index, array) {
+  txt += value + "<br>"; 
+}
+</script>
+
+</body>
+</html>
+
+//ITERATORS AND GENERATORS
+const unfold = (fn, seed) => {
+  let result = [],
+    val = [null, seed];
+  while ((val = fn(val[1]))) result.push(val[0]);
+  return result;
+};
+var f = n => (n > 50 ? false : [-n, n + 10]);
+console.log(unfold(f, 10));
+
+//MODULES
+//export keyword
+<script>
+let area = function (length, breadth) {
+    let a = length * breadth;
+    console.log('Area of the rectangle is ' + a + ' square unit');
+}
+let perimeter = function (length, breadth) {
+    let p = 2 * (length + breadth);
+    console.log('Perimeter of the rectangle is ' + p + ' unit');
+}
+module.exports = {
+    area,
+    perimeter
+}
+</script>
+
+//import keyword
+<script>
+const lib =  require('./library');
+let length = 10;
+let breadth = 5;
+lib.area(length, breadth);
+lib.perimeter(length, breadth);
+</script>
+
+//PROMISES
+const isPromiseLike = obj =>
+  obj !== null &&
+  (typeof obj === 'object' || typeof obj === 'function') &&
+  typeof obj.then === 'function';
+
+console.log(isPromiseLike({
+  then: function() {
+    return '';
+  }
+})); 
+console.log(isPromiseLike(null));
+console.log(isPromiseLike({}));
